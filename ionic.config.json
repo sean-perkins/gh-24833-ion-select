@@ -1,0 +1,7 @@
+{
+  "name": "gh-24833-ion-select",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
