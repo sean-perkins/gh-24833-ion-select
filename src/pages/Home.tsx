@@ -1,8 +1,19 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
+import {
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonPage,
+  IonSelect,
+  IonSelectOption,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import { useState } from "react";
+import "./Home.css";
 
 const Home: React.FC = () => {
+  const [hairColor, setHairColor] = useState<string>();
   return (
     <IonPage>
       <IonHeader>
@@ -16,7 +27,20 @@ const Home: React.FC = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+        <IonItem>
+          <IonLabel>Hair Color</IonLabel>
+          <IonSelect
+            value={hairColor}
+            okText="Okay"
+            cancelText="Dismiss"
+            onIonChange={(e) => setHairColor(e.detail.value)}
+          >
+            <IonSelectOption value="brown">Brown</IonSelectOption>
+            <IonSelectOption value="blonde">Blonde</IonSelectOption>
+            <IonSelectOption value="black">Black</IonSelectOption>
+            <IonSelectOption value="red">Red</IonSelectOption>
+          </IonSelect>
+        </IonItem>
       </IonContent>
     </IonPage>
   );
